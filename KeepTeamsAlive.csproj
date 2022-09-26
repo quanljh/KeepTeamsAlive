@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Product>KeepTeamsAlive</Product>
+    <Authors>Quanljh</Authors>
+    <Version>0.0.0.1</Version>
+    <ApplicationIcon>KeepTeamsAlive.ico</ApplicationIcon>
+    <Copyright>© 2022 Quanljh</Copyright>
+    <Description>You don't need to work very hard for capitalism.</Description>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+</Project>
