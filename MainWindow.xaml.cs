@@ -27,10 +27,15 @@ namespace KeepTeamsAlive
 
             if (processes.Length == 0)
             {
-                _isTeamsRunning = false;
-                MessageBox.Show("Teams is not running!", "Warning");
-                Close();
-                return;
+                processes = Process.GetProcessesByName("ms-teams");
+
+                if (processes.Length == 0)
+                {
+                    _isTeamsRunning = false;
+                    MessageBox.Show("Teams is not running!", "Warning");
+                    Close();
+                    return;
+                }
             }
 
             _isTeamsRunning = true;
@@ -70,6 +75,17 @@ namespace KeepTeamsAlive
             if (!_isTeamsRunning)
             {
                 return;
+            }
+
+
+            if (_teamsHWND == IntPtr.Zero)
+            {
+                Message.Text = "Starting teams...";
+                Process process = new Process();
+                process.StartInfo.FileName = "ms-teams.exe";
+                process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                process.Start();
+                Message.Text = "Close this application if you want to back to work.";
             }
 
             NativeMethods.SetForegroundWindow(_teamsHWND);

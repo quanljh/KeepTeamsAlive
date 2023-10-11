@@ -26,6 +26,12 @@ public static class NativeMethods
     [DllImport("user32.dll", SetLastError = true)]
     internal static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
+    [DllImport("user32.dll", SetLastError = true)]
+    internal static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+    [DllImport("user32.dll")]
+    internal static extern bool EnumChildWindows(IntPtr hwndParent, EnumWindowsProc enumProc, IntPtr lParam);
+
     [DllImport("user32.dll")]
     internal static extern bool SetForegroundWindow(IntPtr hWnd);
 
@@ -157,4 +163,18 @@ public static class NativeMethods
         wpl.showCmd = ShowWindowCommands.Restore;
         return SetWindowPlacement(hWnd, ref wpl);
     }
+
+    // Delegate to be used with EnumWindows
+    public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
+
+    public static bool MyEnumWindowsProc(IntPtr hWnd, IntPtr lParam)
+    {
+        StringBuilder title = new StringBuilder(256);
+        GetWindowText(hWnd, title, 256);
+
+        Console.WriteLine($"Window handle: {hWnd}, Title: {title}");
+
+        return true; // Continue enumeration
+    }
+
 }

@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="KeepTeamsAlive" Height="300" Width="300">
     <StackPanel VerticalAlignment="Center">
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Ready to loaf on the job"></TextBlock>
-        <TextBlock Margin="0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Close this application if you want to back to work."></TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Please go to have a coffee."></TextBlock>
+        <TextBlock x:Name="Message" Margin="0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Close this application if you want to back to work."></TextBlock>
     </StackPanel>
 </Window>
