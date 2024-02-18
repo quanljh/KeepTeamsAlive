@@ -1,8 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
+using Reactive.Bindings;
+using Reactive.Bindings.Schedulers;
 
-namespace MessAround
+namespace KeepTeamsAlive
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -19,7 +21,10 @@ namespace MessAround
                 Current.Shutdown(EXIT_CODE_ALREADY_RUNNING);
                 return;
             }
+
             base.OnStartup(e);
+
+            ReactivePropertyScheduler.SetDefault(new ReactivePropertyWpfScheduler(Dispatcher));
         }
     }
 }
