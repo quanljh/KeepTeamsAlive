@@ -129,7 +129,7 @@ public class MainWindowViewModel : ViewModelBase
             NativeMethods.SetForegroundWindow(_teamsHwnd);
 
 
-            //TimerControl.Invoke(true);
+            TimerControl.Invoke(true);
         }).AddTo(Disposables);
 
         CloseWindowCommand = new ReactiveCommandSlim().WithSubscribe(() =>

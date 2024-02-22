@@ -13,6 +13,11 @@
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" >
+    <DebugType>None</DebugType>
+    <DebugSymbols>False</DebugSymbols>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="Resources\Icons\KeepTeamsAlive.ico" />
   </ItemGroup>
